@@ -4,14 +4,14 @@
 #
 Name     : R-hexbin
 Version  : 1.27.2
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/hexbin_1.27.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hexbin_1.27.2.tar.gz
 Summary  : Hexagonal Binning Routines
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-hexbin-lib
-BuildRequires : clr-R-helpers
+Requires: R-hexbin-lib = %{version}-%{release}
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -32,11 +32,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523307478
+export SOURCE_DATE_EPOCH=1552765479
 
 %install
+export SOURCE_DATE_EPOCH=1552765479
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523307478
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library hexbin|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  hexbin || :
 
 
 %files
@@ -103,7 +102,14 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/hexbin/help/paths.rds
 /usr/lib64/R/library/hexbin/html/00Index.html
 /usr/lib64/R/library/hexbin/html/R.css
-/usr/lib64/R/library/hexbin/libs/symbols.rds
+/usr/lib64/R/library/hexbin/tests/hdiffplot.R
+/usr/lib64/R/library/hexbin/tests/hdiffplot.Rout.save
+/usr/lib64/R/library/hexbin/tests/hray.R
+/usr/lib64/R/library/hexbin/tests/hray.Rout.save
+/usr/lib64/R/library/hexbin/tests/large.R
+/usr/lib64/R/library/hexbin/tests/large.Rout.save
+/usr/lib64/R/library/hexbin/tests/viewp-ex.R
+/usr/lib64/R/library/hexbin/tests/viewp-ex.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
