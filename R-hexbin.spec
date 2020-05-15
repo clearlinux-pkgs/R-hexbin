@@ -4,7 +4,7 @@
 #
 Name     : R-hexbin
 Version  : 1.28.1
-Release  : 29
+Release  : 30
 URL      : https://cran.r-project.org/src/contrib/hexbin_1.28.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hexbin_1.28.1.tar.gz
 Summary  : Hexagonal Binning Routines
@@ -26,21 +26,22 @@ lib components for the R-hexbin package.
 
 %prep
 %setup -q -c -n hexbin
+cd %{_builddir}/hexbin
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1580951893
+export SOURCE_DATE_EPOCH=1589511883
 
 %install
-export SOURCE_DATE_EPOCH=1580951893
+export SOURCE_DATE_EPOCH=1589511883
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
