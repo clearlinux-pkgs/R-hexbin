@@ -5,7 +5,7 @@
 #
 Name     : R-hexbin
 Version  : 1.28.3
-Release  : 54
+Release  : 55
 URL      : https://cran.r-project.org/src/contrib/hexbin_1.28.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hexbin_1.28.3.tar.gz
 Summary  : Hexagonal Binning Routines
